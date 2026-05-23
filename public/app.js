@@ -794,14 +794,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const egoMeterVal = document.getElementById('ego-val-dashboard');
 
   const excusesList = [
-    "BrainFilter.dll failed to load before MouthSpeechThread initiated speaking.",
-    "My social response logic was configured on an outdated 8-bit sarcasm compiler.",
-    "I was suffering from acute low-latte latency (caffeine count < 5%).",
-    "Emotional Context Scanner threw NullPointerException: Friend's feelings not found.",
-    "Consequence Prediction Module was in battery-saver mode.",
-    "Ego buffer overflow: Pride cache size exceeded sensible parameters.",
-    "Mercury was in retrograde and my brain ran on dial-up internet.",
-    "Sarcasm.exe refused to terminate, hogging 100% of brain CPU capacity."
+    "mujhse galti ho gyi main chutiya hu 🤡",
+    "Main hi batak hu 🦆",
+    "mujhe or batman ko saath me nhi dekhogi kyuki main hi batman hu 🦇",
+    "Bauni badmash 😈"
   ];
 
   function typeInConsole(text, isError = false) {
