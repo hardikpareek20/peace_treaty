@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Olive Branch: Deployment of Sincerity v2.0</title>
+  <!-- Premium Typography (Inter & Space Grotesk) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Floating Speaker Control -->
+  <div class="audio-control playing" id="audio-toggle-btn" title="Toggle Sad Violin Atmosphere">
+    <i data-lucide="volume-2" id="audio-icon"></i>
+    <span class="audio-tooltip">Sad Violin: PLAYING 🎻</span>
+  </div>
+
+  <!-- Background Audio Loop -->
+  <audio id="sad-violin-audio" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Animated Floating Emoji & Blob Canvas -->
+  <div class="emoji-bg" id="emoji-container"></div>
+  <div class="blob-decor blob-1"></div>
+  <div class="blob-decor blob-2"></div>
+  <div class="blob-decor blob-3"></div>
+
+  <!-- Apple-Style Interactive Wizard Navigation Bar -->
+  <header class="glass-nav">
+    <div class="nav-brand">
+      <span class="brand-emoji">🕊️</span>
+      <span class="brand-text">PROJECT_OLIVE_BRANCH</span>
+      <span class="brand-tag">SINCERITY_v2.0</span>
+    </div>
+    <!-- Step-by-Step Progress Pipeline Indicator -->
+    <div class="wizard-progress-bar-container">
+      <div class="wizard-line-track">
+        <div class="wizard-line-fill" id="wizard-global-progress"></div>
+      </div>
+      <div class="wizard-steps-group">
+        <div class="wizard-step active" id="step-node-home" data-target="home" title="1. Diagnosis">1</div>
+        <div class="wizard-step" id="step-node-incident" data-target="incident" title="2. Patch Notes">2</div>
+        <div class="wizard-step" id="step-node-bribe" data-target="bribe" title="3. Restitution">3</div>
+        <div class="wizard-step" id="step-node-verdict" data-target="verdict" title="4. Peace Treaty">4</div>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <button class="nav-btn active" data-target="home">
+        <span class="nav-emoji">🚀</span> Launch HQ
+      </button>
+      <button class="nav-btn" data-target="incident" id="nav-btn-incident">
+        <span class="nav-emoji">📋</span> Patch Notes
+      </button>
+      <button class="nav-btn" data-target="bribe" id="nav-btn-bribe">
+        <span class="nav-emoji">🎁</span> Restitution
+      </button>
+      <button class="nav-btn" data-target="verdict" id="nav-btn-verdict">
+        <span class="nav-emoji">🤝</span> Peace Treaty
+      </button>
+    </nav>
+  </header>
+
+  <!-- Main View Container -->
+  <main class="main-container">
+
+    <!-- LAYER 1: CORPORATE SOFTWARE LAUNCH HERO SECTION -->
+    <section id="page-home" class="page-view active">
+      <div class="hero-section">
+        <span class="system-release-label animate-pulse">CRITICAL PATCH DEPLOYMENT</span>
+        <h1 class="hero-glitch-title">The Hardik Personality Update</h1>
+        <p class="hero-subtext">We've identified a critical runtime error: words are being deployed to mouth before passing through the brain. Initializing think-before-you-speak patch...</p>
+        
+        <div class="hero-ctas">
+          <button class="cta-primary pulsing-btn" id="hero-forgive-btn">
+            <i data-lucide="check-circle"></i> Quick Forgiveness
+          </button>
+          <button class="cta-secondary" id="hero-logs-btn">
+            <i data-lucide="arrow-right"></i> Start Diagnosis Sequence
+          </button>
+        </div>
+        
+        <!-- Live Brain Counter -->
+        <div class="brain-counter-strip">
+          <span class="brain-counter-label">⏱️ TIME SINCE HARDIK LAST USED HIS BRAIN:</span>
+          <span class="brain-counter-value" id="brain-timer">00d 00h 00m 00s</span>
+        </div>
+      </div>
+
+      <!-- Unified Apple Launch HQ Dashboard Deck -->
+      <div class="dashboard-deck">
+        
+        <!-- Left Column: Diagnostic & Health Systems -->
+        <div class="deck-column">
+          
+          <!-- Interactive System Health Dashboard -->
+          <div class="fun-card stats-card interactive-hover">
+            <div class="stats-header">
+              <span class="card-subtitle"><i data-lucide="activity"></i> CURRENT SYSTEM INTEGRITY</span>
+            </div>
+            <div class="damage-meter">
+              <div class="meter-row">
+                <span class="meter-label">💔 Friendship Integrity</span>
+                <div class="meter-track">
+                  <div class="meter-fill coral" id="integrity-bar" style="width: 12%;"></div>
+                </div>
+                <span class="meter-val text-coral font-bold" id="integrity-percent">12%</span>
+              </div>
+              <div class="meter-row">
+                <span class="meter-label">💖 Empathy Modules</span>
+                <div class="meter-track">
+                  <div class="meter-fill sky" style="width: 100%;"></div>
+                </div>
+                <span class="meter-val text-sky">100%</span>
+              </div>
+              <div class="meter-row">
+                <span class="meter-label">😤 Ego Overhead</span>
+                <div class="meter-track">
+                  <div class="meter-fill lavender" style="width: 85%;"></div>
+                </div>
+                <span class="meter-val text-lavender" id="ego-val-dashboard">85%</span>
+              </div>
+            </div>
+            <div class="dashboard-unlock-hint">
+              <i data-lucide="info"></i> Complete all steps below to restore integrity to 100%.
+            </div>
+          </div>
+
+          <!-- Hardik Behavior Defect Control Panel (Interactive Debugger) -->
+          <div class="fun-card debug-card interactive-hover">
+            <div class="debug-card-header">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span>🛠️</span>
+                <h3>Behavior Hot-Fix Diagnostic Panel</h3>
+              </div>
+              <span class="table-badge" style="background: var(--lavender-pastel-bg); color: var(--lavender-accent);">DEBUG ACTIVE</span>
+            </div>
+            
+            <p style="font-size: 0.78rem; color: var(--apple-text-body); margin-bottom: 1.25rem; line-height: 1.45;">
+              Manually trigger core override diagnostics to verify the mouth-to-brain filters are properly operating. Tests will sync updates to the live feed.
+            </p>
+            
+            <div class="debug-actions-grid">
+              <!-- Action 1: Excuse Generator -->
+              <div class="debug-action-card">
+                <div>
+                  <h4>Apology Excuse Engine</h4>
+                  <p>Query the Hardik database for self-deprecating excuse subroutines.</p>
+                </div>
+                <button class="pricing-btn" id="btn-generate-excuse" style="padding: 0.45rem; font-size: 0.78rem; background: var(--bg-pure-white);">GENERATE EXCUSE</button>
+              </div>
+              
+              <!-- Action 2: Sync Brain & Mouth -->
+              <div class="debug-action-card">
+                <div>
+                  <h4>Filter Sync Diagnostic</h4>
+                  <p>Force-synchronize the brain filters with speech output threads.</p>
+                </div>
+                <button class="pricing-btn" id="btn-run-diagnostic" style="padding: 0.45rem; font-size: 0.78rem; background: var(--bg-pure-white);">RUN DIAGNOSTIC</button>
+              </div>
+              
+              <!-- Action 3: Ego Override Slider -->
+              <div class="debug-action-card">
+                <div>
+                  <h4>Ego Dampener Override</h4>
+                  <p>Manually restrict ego reserve levels to optimize sincerity.</p>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                    <span style="font-size: 0.7rem; color: var(--apple-text-muted);">Current Ego Level:</span>
+                    <span id="ego-debug-val" style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--coral-accent);">85%</span>
+                  </div>
+                </div>
+                <input type="range" min="0" max="100" value="85" class="fun-slider" id="debug-ego-slider" style="height: 6px;">
+              </div>
+            </div>
+            
+            <!-- Debug Terminal Output Console -->
+            <div id="debug-terminal-output" class="debug-terminal-console" style="display: none;">
+              <div style="color: #6a8759;">$ system --diagnostic-check</div>
+              <div id="debug-terminal-lines"></div>
+            </div>
+          </div>
+
+          <!-- Hardik's Emotional Weather Forecast -->
+          <div class="fun-card weather-card interactive-hover">
+            <div class="weather-card-header">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span>🌦️</span>
+                <h3>Hardik's Emotional Weather Forecast</h3>
+              </div>
+              <span class="table-badge" style="background: var(--sunny-pastel-bg); color: var(--sunny-accent);">LIVE</span>
+            </div>
+            <div class="weather-display">
+              <div class="weather-emoji-box" id="weather-emoji-display">😰</div>
+              <div class="weather-info">
+                <div class="weather-condition" id="weather-condition">HEAVY GUILT SHOWERS</div>
+                <div class="weather-detail" id="weather-detail">Visibility: Low (ego fog). Wind: Strong apologetic gusts from the north.</div>
+                <div class="weather-temps">
+                  <span class="weather-temp-badge hot" id="weather-temp">🌡️ Shame Index: 98°F</span>
+                  <span class="weather-temp-badge cold" id="weather-humidity">💧 Tear Humidity: 87%</span>
+                </div>
+              </div>
+            </div>
+            <button class="pricing-btn" id="btn-refresh-weather" style="margin-top: 1rem; padding: 0.5rem; font-size: 0.78rem; background: var(--bg-pure-white);">🔄 REFRESH FORECAST</button>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Database Feed & Customizer Engine -->
+        <div class="deck-column">
+          
+          <!-- Chat Database Monitor Log -->
+          <div class="fun-card chat-card interactive-hover">
+            <div class="chat-header">
+              <div class="chat-header-left">
+                <span class="chat-emoji">📁</span>
+                <span class="chat-header-title">Live Interactions Database Feed</span>
+                <span class="online-dot"></span>
+              </div>
+              <span class="card-subtitle font-mono">Real-time sync</span>
+            </div>
+            <div class="chat-body" id="terminal-feed">
+              <div class="chat-bubble bubble-system">Initializing Project Olive Branch deployment engine...</div>
+              <div class="chat-bubble bubble-bot">Connecting to local MongoDB log endpoints... 📡</div>
+              <div class="chat-bubble bubble-success">Database online! Syncing live interactions folder.</div>
+              <div class="chat-bubble bubble-bot">Warning: Sincerity registers currently peaking at 100%.</div>
+              <div class="chat-bubble bubble-error">Error: BrainFilter.dll NOT LOADED — mouth running in raw unfiltered mode 💾</div>
+              <div class="chat-bubble bubble-system">-- Synchronizing live interactions database --</div>
+              <div class="chat-bubble bubble-bot">Fetching previous telemetry records...</div>
+            </div>
+          </div>
+
+          <!-- Sincerity AI Apology Generator -->
+          <div class="fun-card ai-card interactive-hover">
+            <div class="ai-card-header">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="font-size: 1.1rem;">🤖</span>
+                <h3>Sincerity.ai Apology Customizer (Beta)</h3>
+              </div>
+              <span class="table-badge" style="background: var(--sky-pastel-bg); color: var(--sky-accent);">SINCERITY V2.0</span>
+            </div>
+            
+            <p style="font-size: 0.78rem; color: var(--apple-text-body); margin-bottom: 1.25rem; line-height: 1.45;">
+              Configure Hardik's apologizing engine algorithm to match your preferred theme. Click compile to generate the output apology payload.
+            </p>
+            
+            <div class="ai-form-row">
+              <div class="ai-form-group">
+                <label>Engine Theme Tone:</label>
+                <select id="ai-tone-select" class="ai-select-field">
+                  <option value="puppy">🐶 Submissive Sorry Puppy</option>
+                  <option value="shakespeare">🎭 Shakespearean Drama</option>
+                  <option value="corporate">💼 Corporate Release Notes</option>
+                  <option value="poetic">🌸 Over-the-top Friend Poetry</option>
+                </select>
+              </div>
+              <div class="ai-form-group">
+                <label>Intensity Register:</label>
+                <select id="ai-tears-select" class="ai-select-field">
+                  <option value="low">Slightly Repentant</option>
+                  <option value="medium">Extremely Sincere</option>
+                  <option value="high">Crying in the Shower Level</option>
+                  <option value="extreme">Niagara Falls of Tears 🌊</option>
+                </select>
+              </div>
+            </div>
+            
+            <button class="pricing-btn" id="btn-generate-ai-apology" style="background: var(--apple-text-dark); color: white; border: none; font-weight: 700; padding: 0.65rem;">COMPILE CUSTOM APOLOGY</button>
+            
+            <!-- Custom Apology Display -->
+            <div id="ai-apology-output" class="ai-output-box" style="display: none;">
+              <!-- Loaded dynamically -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LAYER 2: THE BUG REPORT & COMPARISON TABLE -->
+    <section id="page-incident" class="page-view">
+      <div class="page-section-header">
+        <span class="section-emoji">📋</span>
+        <h1>System Diagnosis & Patch Notes</h1>
+        <p>Root cause: mouth.exe runs before brain.exe loads. Full patch notes for the think-before-you-speak hotfix below.</p>
+      </div>
+
+      <!-- Scanning for Grudges Progress Bar -->
+      <div class="fun-card progress-card interactive-hover">
+        <div class="progress-card-header">
+          <h3 class="progress-title"><i data-lucide="scan"></i> Scanning for lingering grudges...</h3>
+          <button class="rescan-btn" id="btn-rescan" title="Restart Scan"><i data-lucide="refresh-cw"></i> Re-Scan</button>
+        </div>
+        <div class="progress-container-bar">
+          <div class="progress-fill-bar" id="grudge-bar"></div>
+        </div>
+        <div class="progress-stats">
+          <span class="progress-label" id="grudge-status">Initializing scan...</span>
+          <span class="progress-value" id="grudge-val">0%</span>
+        </div>
+      </div>
+
+      <!-- Sleek Apple comparison table -->
+      <div class="fun-card table-card interactive-hover">
+        <div class="table-header">
+          <span class="table-title-main"><i data-lucide="git-branch"></i> Git Version Control Comparison</span>
+          <span class="table-badge">STABLE CEASEFIRE PIPELINE</span>
+        </div>
+        <div class="table-responsive">
+          <table class="fun-table">
+            <thead>
+              <tr>
+                <th>BEHAVIOR VARIABLE</th>
+                <th>PREVIOUS VERSION (BUGGY)</th>
+                <th>SINCERITY v2.0 (PATCHED)</th>
+                <th>INTEGRITY STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>Mouth-Brain Pipeline</b></td>
+                <td><span class="old-version-text shake-hover"><i data-lucide="alert-circle"></i> Zero Latency — Words bypass brain entirely</span></td>
+                <td><span class="new-version-text glow-hover"><i data-lucide="check-circle-2"></i> Added 3-second Think-Before-Speaking buffer</span></td>
+                <td><span class="status-badge fixed">PATCHED</span></td>
+              </tr>
+              <tr>
+                <td><b>Output Filtering</b></td>
+                <td><span class="old-version-text shake-hover"><i data-lucide="alert-circle"></i> Unfiltered raw thoughts streamed directly to mouth</span></td>
+                <td><span class="new-version-text glow-hover"><i data-lucide="check-circle-2"></i> Installed "Will This Hurt?" validation middleware</span></td>
+                <td><span class="status-badge fixed">STABILIZED</span></td>
+              </tr>
+              <tr>
+                <td><b>Impact Assessment</b></td>
+                <td><span class="old-version-text shake-hover"><i data-lucide="alert-circle"></i> Missing Consequence Prediction Engine</span></td>
+                <td><span class="new-version-text glow-hover"><i data-lucide="check-circle-2"></i> Deployed "How Would I Feel?" empathy simulator</span></td>
+                <td><span class="status-badge fixed">DEPLOYED</span></td>
+              </tr>
+              <tr>
+                <td><b>Context Awareness</b></td>
+                <td><span class="old-version-text shake-hover"><i data-lucide="alert-circle"></i> Context-blind word deployment — says wrong thing at wrong time</span></td>
+                <td><span class="new-version-text glow-hover"><i data-lucide="check-circle-2"></i> Real-time Emotional Context Scanner activated</span></td>
+                <td><span class="status-badge fixed">RESOLVED</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Emotional Damage Calculator -->
+      <div class="fun-card damage-calc-card interactive-hover" style="margin-top: 2rem; border-color: var(--coral-accent);">
+        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--apple-gray-200); padding-bottom: 0.75rem; margin-bottom: 1.25rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="font-size: 1.2rem;">💥</span>
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--apple-text-dark); margin: 0;">Emotional Damage Calculator v3.1</h3>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 0.65rem; background: var(--coral-pastel-bg); color: var(--coral-accent); padding: 0.2rem 0.5rem; border-radius: 6px; font-weight: 700;">CRITICAL ANALYSIS</span>
+        </div>
+        
+        <p style="font-size: 0.85rem; color: var(--apple-text-body); margin-bottom: 1.25rem; line-height: 1.5;">
+          Calculate the total emotional damage Hardik caused by speaking before thinking. Uses advanced AI-powered sentiment analysis.
+        </p>
+        
+        <button class="pricing-btn" id="btn-calc-damage" style="background: var(--coral-accent); color: white; border: none; font-weight: 700; padding: 0.65rem;">⚡ CALCULATE EMOTIONAL DAMAGE</button>
+        
+        <!-- Damage Calculation Output -->
+        <div id="damage-calc-output" style="display: none; margin-top: 1.25rem;">
+          <div class="damage-calc-steps" id="damage-calc-steps"></div>
+          <div class="damage-calc-total" id="damage-calc-total" style="display: none;">
+            <span class="damage-total-label">TOTAL EMOTIONAL DAMAGE:</span>
+            <span class="damage-total-value" id="damage-total-val">0</span>
+            <span class="damage-total-unit">units of friendship pain</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Friendship CAPTCHA Verification -->
+      <div class="fun-card captcha-card interactive-hover" style="margin-top: 2rem; border-color: var(--sunny-accent);">
+        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--apple-gray-200); padding-bottom: 0.75rem; margin-bottom: 1.25rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="font-size: 1.2rem;">🔒</span>
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--apple-text-dark); margin: 0;">Friendship CAPTCHA: Superiority Verification</h3>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 0.65rem; background: var(--sunny-pastel-bg); color: var(--sunny-accent); padding: 0.2rem 0.5rem; border-radius: 6px; font-weight: 700;">SECURITY PROTOCOL</span>
+        </div>
+        
+        <p style="font-size: 0.85rem; color: var(--apple-text-body); margin-bottom: 1.25rem; line-height: 1.5;">
+          Please complete this brief verification test to prove you are the superior friend in this relationship and unlock higher sincerity registers.
+        </p>
+        
+        <div id="captcha-questions-container" style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="captcha-question">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--apple-text-dark); display: block; margin-bottom: 0.5rem;">1. Who is 100% responsible for speaking before thinking?</span>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <label style="font-size: 0.8rem; display: flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+                <input type="radio" name="captcha-q1" value="hardik" style="accent-color: var(--sky-accent);"> Hardik
+              </label>
+              <label style="font-size: 0.8rem; display: flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+                <input type="radio" name="captcha-q1" value="keshav" style="accent-color: var(--sky-accent);"> Keshav (Impossible)
+              </label>
+            </div>
+          </div>
+          
+          <div class="captcha-question" style="border-top: 1px solid var(--apple-gray-100); padding-top: 0.75rem;">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--apple-text-dark); display: block; margin-bottom: 0.5rem;">2. What is the standard penalty for speaking with zero brain latency?</span>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <label style="font-size: 0.8rem; display: flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+                <input type="radio" name="captcha-q2" value="feast" style="accent-color: var(--sky-accent);"> Hardik sponsors a giant feast
+              </label>
+              <label style="font-size: 0.8rem; display: flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+                <input type="radio" name="captcha-q2" value="shut" style="accent-color: var(--sky-accent);"> Hardik stays quiet on command
+              </label>
+              <label style="font-size: 0.8rem; display: flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+                <input type="radio" name="captcha-q2" value="both" style="accent-color: var(--sky-accent);"> Both (Recommended)
+              </label>
+            </div>
+          </div>
+          
+          <button class="pricing-btn" id="btn-verify-captcha" style="margin-top: 0.5rem; background: var(--apple-text-dark); color: white; border: none; font-weight: 700;">VERIFY SUPERIORITY</button>
+        </div>
+        
+        <!-- Captcha Success Box -->
+        <div id="captcha-success-box" style="display: none; background: var(--mint-pastel-bg); border: 1px solid rgba(52,199,89,0.2); padding: 1rem; border-radius: 8px; text-align: center; margin-top: 0.5rem;">
+          <span style="font-size: 1.25rem; display: block; margin-bottom: 0.25rem;">✅ CAPTCHA VERIFIED</span>
+          <p style="font-size: 0.8rem; color: #1a7a30; font-weight: 600;">
+            Superior status confirmed. Sincerity multipliers set to 2.0x!
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 2 Connected Action Footer -->
+      <div class="wizard-next-step-panel" id="next-panel-step2">
+        <div class="step-completed-icon"><i data-lucide="check-circle-2"></i></div>
+        <div class="step-completed-text">
+          <h4>Step 2 Complete: System Diagnosis Finished</h4>
+          <p>Grudge scan complete. Friendship integrity has recovered to 30%. Proceed to select your compensation.</p>
+        </div>
+        <button class="step-next-btn btn-sky" id="btn-goto-step3">
+          Select Restitution Plan <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- LAYER 4: THE BRIBE INTEGRATION API -->
+    <section id="page-bribe" class="page-view">
+      <div class="page-section-header">
+        <span class="section-emoji">💸</span>
+        <h1>Financial Restitution & Peace Offerings</h1>
+        <p>Three flexible compensation packages formulated to expedite treaty sign-off.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Plan A: The Feast -->
+        <div class="pricing-card fun-card popular interactive-hover" data-bribe="The Feast Plan">
+          <div class="popular-ribbon">RECOMMENDED</div>
+          <div class="pricing-header">
+            <span class="plan-badge A">PLAN A</span>
+            <h2 class="plan-title">The Feast</h2>
+            <div class="plan-price">🍔 Free++</div>
+          </div>
+          <p class="plan-desc">I will order the feast of your delight. No awkward questions asked. Your wish is my command — just name the place and the food.</p>
+          <ul class="plan-features">
+            <li><i data-lucide="check" class="feat-icon"></i> Your favorite location</li>
+            <li><i data-lucide="check" class="feat-icon"></i> I cover the entire bill</li>
+            <li><i data-lucide="check" class="feat-icon"></i> Sincere head nods guaranteed</li>
+          </ul>
+          <button class="pricing-btn popular-btn buy-btn">SELECT THIS PLAN</button>
+        </div>
+
+        <!-- Plan B: The Ultimate -->
+        <div class="pricing-card fun-card interactive-hover" data-bribe="The Ultimate Plan">
+          <div class="pricing-header">
+            <span class="plan-badge B">PLAN B</span>
+            <h2 class="plan-title">The Ultimate</h2>
+            <div class="plan-price">📜 Notarized</div>
+          </div>
+          <p class="plan-desc">A written declaration fully admitting that I was wrong, signed and notarized by this website, hosted on github servers forever.</p>
+          <ul class="plan-features">
+            <li><i data-lucide="check" class="feat-icon"></i> Notarized by this app</li>
+            <li><i data-lucide="check" class="feat-icon"></i> Printable PDF on request</li>
+            <li><i data-lucide="check" class="feat-icon"></i> Absolute ego deletion</li>
+          </ul>
+          <button class="pricing-btn buy-btn">SELECT THIS PLAN</button>
+        </div>
+
+        <!-- Plan C: Shutting My Mouth Coupon -->
+        <div class="pricing-card fun-card interactive-hover" data-bribe="Shutting My Mouth Coupon">
+          <div class="pricing-header">
+            <span class="plan-badge C">PLAN C</span>
+            <h2 class="plan-title">Shut My Mouth</h2>
+            <div class="plan-price">🤐 Priceless</div>
+          </div>
+          <p class="plan-desc">A legally binding coupon redeemable anytime you need me to simply shut up. Activate it mid-sentence — I will stop talking instantly, no questions asked.</p>
+          <ul class="plan-features">
+            <li><i data-lucide="check" class="feat-icon"></i> 24hr Full Silence Protocol</li>
+            <li><i data-lucide="check" class="feat-icon"></i> "Think Before Speaking" boot camp</li>
+            <li><i data-lucide="check" class="feat-icon"></i> You get a remote mouth kill-switch</li>
+          </ul>
+          <button class="pricing-btn buy-btn">SELECT THIS PLAN</button>
+        </div>
+      </div>
+
+      <!-- Apology Roulette Wheel -->
+      <div class="fun-card roulette-card interactive-hover" style="margin-top: 2rem; text-align: center; border-color: var(--lavender-accent);">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; border-bottom: 1px solid var(--apple-gray-200); padding-bottom: 0.75rem; margin-bottom: 1.25rem;">
+          <span style="font-size: 1.2rem;">🎰</span>
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--apple-text-dark); margin: 0;">Apology Punishment Roulette</h3>
+        </div>
+        
+        <p style="font-size: 0.85rem; color: var(--apple-text-body); margin-bottom: 1.5rem; line-height: 1.5;">
+          Feeling lucky? Spin the wheel to add a random bonus punishment or reward to Hardik's apology sentence.
+        </p>
+        
+        <div class="roulette-container">
+          <div class="roulette-pointer">▼</div>
+          <div class="roulette-wheel" id="roulette-wheel">
+            <div class="roulette-segment seg-1">🍕 Free Pizza</div>
+            <div class="roulette-segment seg-2">🤐 24hr Silence</div>
+            <div class="roulette-segment seg-3">📢 Public Apology</div>
+            <div class="roulette-segment seg-4">🧹 Do Chores</div>
+            <div class="roulette-segment seg-5">💰 Pay $50</div>
+            <div class="roulette-segment seg-6">🎵 Sing Sorry</div>
+            <div class="roulette-segment seg-7">🐕 Walk Dog</div>
+            <div class="roulette-segment seg-8">👑 You're Boss</div>
+          </div>
+        </div>
+        
+        <button class="pricing-btn popular-btn" id="btn-spin-roulette" style="margin-top: 1.5rem; padding: 0.7rem; font-size: 0.95rem;">🎰 SPIN THE WHEEL</button>
+        
+        <div id="roulette-result" style="display: none; margin-top: 1rem; background: var(--lavender-pastel-bg); border: 1px solid rgba(88, 86, 214, 0.2); padding: 1rem; border-radius: 8px;">
+          <span style="font-size: 1.5rem; display: block; margin-bottom: 0.25rem;" id="roulette-result-emoji">🎉</span>
+          <p style="font-size: 0.9rem; font-weight: 700; color: var(--lavender-accent);" id="roulette-result-text">Result loading...</p>
+          <p style="font-size: 0.75rem; color: var(--apple-text-muted); margin-top: 0.25rem;" id="roulette-result-desc">This punishment has been added to Hardik's sentence.</p>
+        </div>
+      </div>
+
+      <!-- Interactive Compensation Sandbox (Dynamic Interactive Widgets) -->
+      <div class="fun-card bribe-playground-card interactive-hover" id="bribe-playground-panel" style="display: none; margin-top: 2rem; border-color: var(--sky-accent); background: rgba(255,255,255,0.7); backdrop-filter: blur(10px);">
+        <div id="playground-title-group" style="display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--apple-gray-200); padding-bottom: 1rem; margin-bottom: 1.25rem;">
+          <span id="playground-emoji" style="font-size: 1.3rem;">🍔</span>
+          <h3 id="playground-title" style="font-size: 1.05rem; font-weight: 700; color: var(--apple-text-dark); margin: 0;">Interactive Compensation Simulator</h3>
+        </div>
+        
+        <!-- Slot for plan-specific interactive widget -->
+        <div id="playground-widget-content"></div>
+      </div>
+
+      <!-- Step 3 Connected Action Footer -->
+      <div class="wizard-next-step-panel" id="next-panel-step3">
+        <div class="step-completed-icon"><i data-lucide="check-circle-2"></i></div>
+        <div class="step-completed-text">
+          <h4>Step 3 Complete: Compensation Confirmed</h4>
+          <p>Bribe authorized successfully. Friendship integrity has recovered to 65%. Proceed to treaty calibration.</p>
+        </div>
+        <button class="step-next-btn btn-mint" id="btn-goto-step4">
+          Sign the Peace Treaty <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- LAYER 3: THE INTERACTIVE PEACE TREATY -->
+    <section id="page-verdict" class="page-view">
+      <div class="verdict-wrapper">
+        <div class="fun-card verdict-card interactive-hover" id="verdict-treaty-card">
+          <div class="verdict-status-indicator">
+            <span class="active-emoji" id="slider-emoji">😡</span>
+          </div>
+          <span class="verdict-header-note">DEPLOYMENT CALIBRATION</span>
+          <h2 class="verdict-question">Are you still angry with me?</h2>
+
+          <!-- Forgiveness Slider directly integrated for premium color changing background -->
+          <div class="slider-treaty-container">
+            <div class="slider-header-row">
+              <span class="slider-title-label">Forgiveness Calibration Scale:</span>
+              <span class="slider-percent-badge" id="slider-percentage-val">10%</span>
+            </div>
+            <input type="range" min="1" max="100" value="10" class="fun-slider" id="verdict-anger-slider">
+            <div class="slider-status-labels">
+              <span class="slide-lbl" id="slider-label-left">Mildly Annoyed (10%)</span>
+              <span class="slide-lbl" id="slider-label-center">Calming Down</span>
+              <span class="slide-lbl font-bold" id="slider-label-right">We Good! (100%)</span>
+            </div>
+          </div>
+
+          <div class="verdict-buttons">
+            <!-- YES BUTTON / STAY ANGRY (Runaway button) -->
+            <button class="verdict-btn yes-btn" id="btn-yes">
+              <span>😡</span> STAY ANGRY!
+            </button>
+            <!-- NO BUTTON / FORGIVENESS (Pulsing glowing button) -->
+            <button class="verdict-btn no-btn disabled" id="btn-no" disabled>
+              <span>💖</span> NO, I FORGIVE YOU!
+            </button>
+          </div>
+
+          <p class="verdict-disclaimer-note"><i data-lucide="lock"></i> Calibrate slider to 100% "We Good" to unlock forgiveness protocols.</p>
+        </div>
+
+        <!-- Right Side Column: Puppy + Compatibility -->
+        <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 360px; width: 100%;">
+          <!-- Interactive Pleading Puppy Card -->
+          <div class="fun-card puppy-card interactive-hover" style="width: 100%; text-align: center; padding: 2rem; border-color: var(--coral-accent); background: #fff;">
+            <div style="font-size: 4rem; margin-bottom: 0.5rem; animation: floatUp 2s ease-in-out infinite alternate;" id="puppy-emoji">🥺</div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--apple-text-dark); margin-bottom: 0.75rem;">Virtual Apology Assistant</h3>
+            <p style="font-size: 0.8rem; color: var(--apple-text-body); line-height: 1.5; margin-bottom: 1.25rem;" id="puppy-speech">
+              "Bork! I have been summoned to plead on Hardik's behalf. He is a major dork, but his regret registers are peaking. Please pet me and forgive him!"
+            </p>
+            <button class="pricing-btn" id="btn-pet-puppy" style="background: var(--coral-pastel-bg); color: var(--coral-accent); border: 1px solid var(--coral-accent); font-weight: 700;">🐶 PET THE PUPPY</button>
+            
+            <div style="margin-top: 1.25rem; border-top: 1px solid var(--apple-gray-200); padding-top: 1rem; display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--apple-text-muted);">
+              <span>Puppy Mood: <b style="color: var(--coral-accent);" id="puppy-mood">Pleading</b></span>
+              <span>Tail Wags: <b id="puppy-wags">0</b></span>
+            </div>
+          </div>
+          
+          <!-- Friendship Compatibility Score Gauge -->
+          <div class="fun-card compat-card interactive-hover" style="width: 100%; text-align: center; padding: 2rem; border-color: var(--sky-accent); background: #fff;">
+            <h3 style="font-size: 1rem; font-weight: 800; color: var(--apple-text-dark); margin-bottom: 0.25rem;">🤝 Friendship Compatibility Score</h3>
+            <p style="font-size: 0.72rem; color: var(--apple-text-muted); margin-bottom: 1.25rem; font-family: var(--font-mono);">POWERED BY SINCERITY.AI ENGINE</p>
+            
+            <div class="compat-gauge-container">
+              <svg class="compat-gauge" viewBox="0 0 120 120" width="140" height="140">
+                <circle class="compat-gauge-bg" cx="60" cy="60" r="52" />
+                <circle class="compat-gauge-fill" id="compat-gauge-arc" cx="60" cy="60" r="52" />
+                <text x="60" y="55" class="compat-gauge-text" id="compat-score-text">??</text>
+                <text x="60" y="72" class="compat-gauge-sublabel">/ 100</text>
+              </svg>
+            </div>
+            
+            <button class="pricing-btn" id="btn-run-compat" style="background: var(--sky-pastel-bg); color: var(--sky-accent); border: 1px solid var(--sky-accent); font-weight: 700; margin-top: 1rem; padding: 0.5rem;">🧮 RUN ANALYSIS</button>
+            
+            <div id="compat-verdict" style="display: none; margin-top: 1rem; font-size: 0.8rem; color: var(--apple-text-body); line-height: 1.5; font-style: italic;"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Fullscreen Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Success Modal Overlay -->
+  <div class="modal-overlay" id="victory-modal">
+    <div class="fun-card modal-content">
+      <span class="modal-emoji">🎉</span>
+      <h2 class="modal-title">CEASEFIRE RATIFIED!</h2>
+      <p class="modal-desc">Sincerity log packets committed to MongoDB! friendship integrity is fully synchronized and running stable at 100%.</p>
+      
+      <div class="modal-fun-log">
+        <b>[SUCCESS]</b> FINAL_FORGIVENESS: TRUE saved.<br>
+        <b>[SYSTEM]</b> Mutual trust buffers fully flushed and restored.<br>
+        <b>[STATUS]</b> Neutral neural respect engine active! ❤️
+      </div>
+      <button class="modal-close-btn" id="btn-modal-close">WOOHOO! DISMISS CEASEFIRE</button>
+    </div>
+  </div>
+
+  <!-- Bribe Toast Notification -->
+  <div class="toast-notification" id="toast-notify">
+    <span class="toast-emoji">☕</span>
+    <div class="toast-text-group">
+      <span class="toast-title">BRIBE SELECTION SAVED</span>
+      <span class="toast-desc" id="toast-desc-val">Espresso Plan dispatches straight to your database record!</span>
+    </div>
+  </div>
+
+  <!-- LAYER 5: THE FOOTER (LEGAL & EMOTIONAL) -->
+  <footer class="app-footer">
+    <div class="footer-legal-clause">
+      <b>TOS DISCLAIMER:</b> By staying on this page for more than 30 seconds, you agree to the Terms of Service which state that I am a dork and you are the superior friend. All rights reserved.
+    </div>
+    <div class="footer-bottom-row">
+      <p class="footer-credits">Developed with 0% pride and 100% regret by Hardik.</p>
+      <div class="footer-links">
+        <a href="https://wa.me/?text=Hey%20Hardik!%20I%20reviewed%20the%20Project%20Olive%20Branch%20v2.0%20documentation%20and%20Apology%20logs.%20Here%20is%20my%20verdict..." class="footer-support-link" target="_blank">
+          <i data-lucide="message-square"></i> Contact Support
+        </a>
+        <div class="footer-pulse-box">
+          <span class="footer-dot"></span>
+          <span class="footer-version-text">Ceasefire hotfix v2.0.0</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
